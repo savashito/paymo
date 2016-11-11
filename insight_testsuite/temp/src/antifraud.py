@@ -9,18 +9,7 @@
 
 #####
 import sys
-# from scipy.sparse import coo_matrix,csr_matrix
-# from scipy.sparse.csgraph import floyd_warshall,csgraph_to_masked
-# import numpy as np
-# def test():
-# 	row  = np.array([1,2,3,2,4,5,5])
-# 	col  = np.array([0,0,0,1,1,4,3])
-# 	data = np.ones(len(row))
-# 	graph = csr_matrix((data, (row, col)), shape=(6,6))
-# 	# graph = csgraph_to_masked(graph)
-# 	# print .toarray().T
-# 	distMat = floyd_warshall(graph,directed=False, unweighted=True)
-# 	print distMat
+
 
 verifyText = {True:"trusted\n",False:"unverified\n"}
 
@@ -52,7 +41,6 @@ class Buyeres:
 		sellers = []
 		try:
 			sellers = []+self.buyersTable[buyerId]
-			# print "getSellersAndUpdateDepth",buyerId,sellers
 		except KeyError, e:
 			sellers = []
 		for sellerId in sellers:
@@ -88,14 +76,7 @@ class Buyeres:
 				# print "newStack",tStack
 
 		return False
-		# try:
-		# 	sellers = self.buyersTable[nodeId]
-		# 	for key,sellerId in sellers
-				
-		# 	return sellerId in sellers
-		# except KeyError, e:
-		# 	return False
-	# def is4thDegreeFriend(self):
+
 
 	def __str__(self):
 		s = ""
@@ -135,12 +116,7 @@ def main(argv):
 
 			if linesRead>8:
 				break
-	# print buyers.buyersTable
-	# build transaction lists
-	# transactionsList = []
 
-	# print buyers.isFriendOfFriend(1,5)
-	# return
 	with open(fnameStream) as f:
 		linesRead = 0
 		for line in f:
@@ -156,32 +132,12 @@ def main(argv):
 			fout3.write( verifyText[buyers.degreeFriend(3,buyerId,sellerId)])
 			# perform the transaction regarless as in the documentation
 			buyers.bought(buyerId,sellerId)
-			# print buyers.degreeFriend(3,6,7)
-			# print line
-			# print words,id1,id2
-			# buyers.bought(id1,id2)
+	
 
 		for line in f:
 			linesRead += 1
 
-	# print buyers.isFriend(1,2)
-	# print buyers.isFriendOfFriend(1,5)
-	# print buyers.isFriend(1,3)
-	# print buyers.isFriendOfFriend(1,5)
-	# # print buyers.isFriendOfFriend(1,7)
-	# print buyers.isFriendOfFriend(6,1)
-	# print buyers.degreeFriend(3,6,7)
-	# print buyers.degreeFriend(3,1,7)
-	# print buyers.degreeFriend(2,1,7)
 
-
-
-	# print buyers.isFriend(47055,6044)
-	# print buyers.isFriend(47055,5817)
-		# content = f.readlines()
-	# fout1.write('unverified\n')
-	# fout2.write('trusted\n')
-	# fout3.write('trusted\n')
 	fout1.close()
 	fout2.close()
 	fout3.close()
